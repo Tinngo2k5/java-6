@@ -1,0 +1,105 @@
+
+/* Loại bỏ gạch chân mặc định của thẻ a */
+a {
+  text-decoration: none;
+}
+img.img-fluid {
+  width: 200px !important;
+  height: 200px !important;
+  object-fit: cover;
+}
+/* Thiết lập khoảng cách giữa các mục trong danh sách ở footer */
+.footer-top li {
+  margin-bottom: 0.5rem;
+}
+
+/* Hiệu ứng hover cho card trong lưới sản phẩm */
+.item-grid .card:hover {
+  box-shadow: 0 4px 15px rgb(153 153 153 / 30%); /* Đổ bóng nhẹ */
+  transition: 0.3s; /* Hiệu ứng chuyển đổi mượt mà */
+}
+
+/* Hiệu ứng khi card bị nhấn */
+.item-grid .card:active {
+  box-shadow: inset 0 4px 15px rgb(153 153 153 / 30%);
+}
+
+/* Định dạng phần danh mục sản phẩm */
+.section-pagetop {
+  padding: 40px 0; /* Thêm khoảng đệm trên và dưới */
+}
+
+/* Thiết lập khoảng đệm dọc */
+.padding-y {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* Thiết lập đường viền dưới cho các nhóm bộ lọc */
+.filter-group {
+  border-bottom: 1px solid #e4e4e4;
+}
+.filter-group:last-child {
+  border-bottom: 0; /* Loại bỏ đường viền của nhóm cuối cùng */
+}
+
+/* Loại bỏ đường viền và nền của tiêu đề nhóm lọc */
+.filter-group .card-header {
+  border-bottom: 0;
+  background-color: unset;
+}
+
+/* Định dạng phần breadcrumb trong trang sản phẩm */
+.section-pagetop-2 {
+  padding: 20px 0;
+}
+.section-pagetop-2 .breadcrumb {
+  margin-bottom: 0;
+}
+
+/* Định dạng sao đánh giá */
+.rating-stars i {
+  color: #ccc; /* Màu mặc định là xám */
+}
+.rating-stars i.active {
+  color: orange; /* Khi active sẽ đổi sang màu cam */
+}
+
+/* Định dạng bảng giỏ hàng */
+.cart-table th,
+.cart-table td {
+  padding: 0.75rem 1rem; /* Thêm khoảng cách giữa nội dung và viền ô */
+}
+#cart-table {
+  min-height: 120px; /* Đảm bảo chiều cao tối thiểu cho bảng */
+}
+
+/* Thiết lập z-index cho thông báo (toast) */
+.toast-container {
+  z-index: 5;
+}
+
+/* Giới hạn số dòng hiển thị của nội dung bảng */
+.td-text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Chỉ hiển thị tối đa 2 dòng */
+  -webkit-box-orient: vertical;
+}
+
+/* Định dạng ảnh đại diện */
+.avatar-label {
+  display: inline-block;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* Biến ảnh thành hình tròn */
+  overflow: hidden;
+  cursor: pointer; /* Khi rê chuột vào sẽ hiển thị kiểu con trỏ chọn */
+  border: 3px solid #ddd;
+}
+.avatar-label img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Đảm bảo ảnh không bị méo khi co giãn */
+}
