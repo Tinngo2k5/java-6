@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -19,6 +20,7 @@ import edu.poly.assignment_java5_pd11236.service.SanPhamService;
 import edu.poly.assignment_java5_pd11236.service.UserService;
 
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
 	@Autowired
 	UserService userService;
@@ -31,7 +33,7 @@ public class AdminController {
 	@Autowired
 	private HttpSession session;
 
-	@GetMapping("/admin")
+	@GetMapping
 	public String home(Model model) {
 		Users currentUser = (Users) session.getAttribute("currentUser");
 		if (currentUser == null || !currentUser.isVaitro()) {
@@ -45,7 +47,7 @@ public class AdminController {
 		return "admin/user/userManager";		
 	}
 
-	@GetMapping("/admin/user")
+	@GetMapping("/user")
 	public String userManager(Model model, @RequestParam(defaultValue = "0", name = "page") int page) {
 		Users currentUser = (Users) session.getAttribute("currentUser");
 		if (currentUser == null || !currentUser.isVaitro()) {
@@ -60,7 +62,7 @@ public class AdminController {
 		return "admin/user/userManager";
 	}
 
-	@GetMapping("/admin/user/create")
+	@GetMapping("/user/create")
 	public String userCreate(Model model, @ModelAttribute("user") Users user) {
 		Users currentUser = (Users) session.getAttribute("currentUser");
 		if (currentUser == null || !currentUser.isVaitro()) {
@@ -69,7 +71,7 @@ public class AdminController {
 		return "admin/user/createUser";
 	}
 
-	@PostMapping("/admin/user/create")
+	@PostMapping("/user/create")
 	public String userInsert(Model model, @ModelAttribute("user") Users user) {
 		try {
 			Users currentUser = (Users) session.getAttribute("currentUser");
@@ -84,7 +86,7 @@ public class AdminController {
 		return "admin/user/createUser";
 	}
 
-	@GetMapping("/admin/user/edit/{id}")
+	@GetMapping("/user/edit/{id}")
 	public String showUpdateForm(@PathVariable("id") String id, Model model) {
 		Users currentUser = (Users) session.getAttribute("currentUser");
 		if (currentUser == null || !currentUser.isVaitro()) {
@@ -99,7 +101,7 @@ public class AdminController {
 		return "admin/user/updateUser";
 	}
 
-	@PostMapping("/admin/user/update/{id}")
+	@PostMapping("/user/update/{id}")
 	public String updateUser(Model model, @PathVariable("id") String id, @ModelAttribute("user") Users updatedUser) {
 		try {
 			Users currentUser = (Users) session.getAttribute("currentUser");
@@ -114,7 +116,7 @@ public class AdminController {
 		return "admin/user/updateUser";
 	}
 
-	@GetMapping("/admin/user/delete/{id}")
+	@GetMapping("/user/delete/{id}")
 	public String deleteUser(Model model, @PathVariable("id") String id, RedirectAttributes redirectAttributes) {
 		try {
 			userService.deleteUser(id);
@@ -126,3 +128,4 @@ public class AdminController {
 	}
 
 }
+
