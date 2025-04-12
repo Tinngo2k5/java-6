@@ -3,5 +3,5 @@ services:
     name: springboot-app
     env: java
     buildCommand: ./mvnw clean install
-    startCommand: java -jar target/*.jar
+    startCommand: java -jar target/assignment_java5_pd11236-0.0.1-SNAPSHOT.jar
     plan: free
