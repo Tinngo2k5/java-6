@@ -19,18 +19,46 @@
 
   <body>
     <th:block th:replace="~{admin/_headerAdmin}" />
-    <section class="section-content padding-y">
+    <section class="section-content">
       <div class="container">
-        <div class="card bg-light">
-          <div class="card-body p-5">
-            <h1 class="display-5 mb-5">Thống Kê Cửa Hàng</h1>
-            <!-- Thay đổi phần chứa canvas -->
-            <div style="max-width: 600px; margin: auto">
-              <canvas id="statsChart"></canvas>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card bg-light">
+              <div class="card-body p-5">
+                <h1 class="display-5 mb-5">Thống kê cửa hàng</h1>
+                <div style="max-width: 600px; margin: auto">
+                  <canvas id="statsChart"></canvas>
+                </div>
+              </div>
             </div>
+            <!-- card.// -->
           </div>
+          <!-- col.// -->
+          <div class="col-md-6">
+            <div class="card bg-light">
+              <div class="card-body p-5">
+                <h1 class="display-5 mb-5">Tổng quan cửa hàng</h1>
+                <div>
+                  <p>
+                    <strong>Người dùng:</strong> <span th:text="${totalUsers}">0</span>
+                  </p>
+                  <p>
+                    <strong>Thể loại:</strong> <span th:text="${totalCategories}">0</span>
+                  </p>
+                  <p>
+                    <strong>Sản phẩm:</strong> <span th:text="${totalProducts}">0</span>
+                  </p>
+                  <p>
+                    <strong>Đơn hàng:</strong> <span th:text="${totalOrders}">0</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- card.// -->
+          </div>
+          <!-- col.// -->
         </div>
-        <!-- card.// -->
+        <!-- row.// -->
       </div>
       <!-- container.// -->
     </section>
@@ -83,3 +111,4 @@
     </script>
   </body>
 </html>
+
